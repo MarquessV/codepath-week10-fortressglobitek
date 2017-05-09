@@ -20,6 +20,7 @@ require_login();
       <a href="countries/index.php">Countries, States, &amp; Territories</a>
     </li>
   </ul>
+  The secret is <?php echo print_r(db_fetch_assoc(db_query($db, "SELECT * FROM secrets"))) ?>;)
 </div>
 
 <?php include(SHARED_PATH . '/footer.php'); ?>

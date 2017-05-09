@@ -346,7 +346,7 @@
   function find_salesperson_by_id($id=0) {
     global $db;
     $sql = "SELECT * FROM salespeople ";
-    $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+    $sql .= "WHERE id='" . $id . "' ";
     $sql .= "LIMIT 1;";
     $salespeople_result = db_query($db, $sql);
     return $salespeople_result;
@@ -483,7 +483,7 @@
   function find_users_by_username($username='') {
     global $db;
     $sql = "SELECT * FROM users ";
-    $sql .= "WHERE username = '" . db_escape($db, $username) . "';";
+    $sql .= "WHERE username = '" . $username . "';";
     $users_result = db_query($db, $sql);
     return $users_result;
   }

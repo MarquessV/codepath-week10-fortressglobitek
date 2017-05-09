@@ -1,6 +1,7 @@
 <?php
   require_once('../private/initialize.php');
-
+  ini_set('display_errors',1); 
+  error_reporting(E_ALL);
   if(!isset($_GET['id'])) {
     // Redirect if no ID provided
     redirect_to('territories.php');
@@ -16,7 +17,7 @@
     $person = db_fetch_assoc($salespeople_result);
     db_free_result($salespeople_result);
   } else {
-    // Redirect if not found
+     //Redirect if not found
     redirect_to('territories.php');
   }
 ?>

@@ -4,7 +4,7 @@ require_once('../../private/initialize.php');
 // Until we learn about encryption, we will use an unencrypted
 // master password as a stand-in. It should go without saying
 // that this should *never* be done in real production code.
-$master_password = 'secret';
+$master_password = 'cantguess';
 
 // Set default values for all variables the page needs.
 $errors = array();
@@ -40,7 +40,7 @@ if(is_post_request() && request_is_same_domain()) {
         redirect_to('index.php');
       } else {
         // Username found, but password does not match.
-        $errors[] = "Log in was unsuccessful.";
+        $errors[] ="Log in was not successful.";
       }
     } else {
       // No username found
@@ -66,7 +66,7 @@ if(is_post_request() && request_is_same_domain()) {
   <form action="login.php" method="post">
     <?php echo csrf_token_tag(); ?>
     Username:<br />
-    <input type="text" name="username" value="<?php echo h($username); ?>" /><br />
+    <input type="text" name="username" value="<?php echo $username; ?>" /><br />
     Password:<br />
     <input type="password" name="password" value="" /><br />
     <input type="submit" name="submit" value="Submit"  />
